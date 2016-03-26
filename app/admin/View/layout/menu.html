@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh" class="app">
+<head>  
+  <meta charset="utf-8" />
+  <title>{$title}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="__PUBLIC__/css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="__PUBLIC__/css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="__PUBLIC__/css/font.css" type="text/css" />
+  <link rel="stylesheet" href="__PUBLIC__/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="__PUBLIC__/js/datepicker/datepicker.css" type="text/css" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/index.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/sweetalert.css">
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/textAngular/dist/textAngular.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/iosAlert/custom.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/iosAlert/iosOverlay.css">
+  <link rel="stylesheet" href="__PUBLIC__/css/iosAlert/prettify.css">
+  <link rel="shortcut icon" href="__PUBLIC__/images.ico" type="image/x-icon" />
+  <script src="__PUBLIC__/js/jquery.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/angular.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/angular-sanitize.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/js/ui-bootstrap-tpls-0.10.0.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/js/ie/html5shiv.js"></script>
+    <script src="__PUBLIC__/js/ie/respond.min.js"></script>
+    <script src="__PUBLIC__/js/ie/excanvas.js"></script>
+  <![endif]-->
+</head>
+<body class="">
+  <section class="vbox">
+    <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+      <div class="navbar-header aside bg-info nav-xs">
+        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+          <i class="icon-list"></i>
+        </a>
+        <a href="{:U('admin/Index/index')}" class="navbar-brand text-lt">
+          <i class="icon-home"></i>
+          <span class="hidden-nav-xs m-l-sm">Companion</span>
+        </a>
+        <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+          <i class="icon-settings"></i>
+        </a>
+      </div>      <ul class="nav navbar-nav hidden-xs">
+        <li>
+          <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+            <i class="fa fa-indent text"></i>
+            <i class="fa fa-dedent text-active"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="navbar-right ">
+        <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
+              <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img src="__PUBLIC__/images/head.jpg">
+              </span><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight">            
+              <li>
+                <span class="arrow top"></span>
+                <a href="#">设置</a>
+              </li>
+              <li>
+                <a href="profile.html">资料</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="{:U('Login/logout')}" data-toggle="ajaxModal" >退出</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>      
+    </header>
+    <section>
+      <section class="hbox stretch">
+        <!-- .aside -->
+        <aside class="bg-black dk nav-xs aside hidden-print" id="nav">          
+          <section class="vbox">
+            <section class="w-f-md scrollable">
+              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+                <!-- nav -->                 
+                <nav class="nav-primary hidden-xs">
+                  <ul class="nav bg clearfix">
+                    <li>
+                      <a href="{:U('admin/post/index')}">
+                        <i class=" icon-notebook icon text-info"></i>
+                        <span class="font-bold">文章</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{:U('Admin/Blog/index')}">
+                        <i class="icon-grid icon text-primary-lter"></i>
+                        <span class="font-bold">栏目</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{:U('admin/message/index')}">
+                        <i class="icon-bubbles icon  text-success"></i>
+                        <span class="font-bold">留言</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{:U('Admin/Users/index')}">
+                        <i class="icon-users icon  text-primary"></i>
+                        <span class="font-bold">用户</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{:U('Admin/About/index')}">
+                        <i class="icon-user icon text-info"></i>
+                        <span class="font-bold">关于我</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{:U('Admin/Link/index')}">
+                        <i class="icon-link icon  text-info-dker"></i>
+                        <span class="font-bold">链接管理</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        <i class="icon-wrench icon  text-danger"></i>
+                        <span class="font-bold">权限管理</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        <i class="icon-settings icon  text-warning"></i>
+                        <span class="font-bold">系统设置</span>
+                      </a>
+                    </li>
+                    <li class="m-b hidden-nav-xs"></li>
+                  </ul>
+                </nav>
+              </div>
+            </section>
+          </section>
+        </aside>

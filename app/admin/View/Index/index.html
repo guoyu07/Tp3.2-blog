@@ -1,0 +1,190 @@
+<section id="content">
+    <div class="briefly">
+        <ul>
+            <li class="post">
+                <div class="visual">
+                    <i class="icon-notebook">
+                    </i>
+                </div>
+                <div class="number">
+                    {$count['postNum']}
+                    <span>
+                        文章
+                    </span>
+                </div>
+                <div class="more">
+                    <a href="{:U('admin/Post/index')}">
+                        查看更多
+                        <i class="icon-arrow-right">
+                        </i>
+                    </a>
+                </div>
+            </li>
+            <li class="album">
+                <div class="visual">
+                    <i class="icon-grid">
+                    </i>
+                </div>
+                <div class="number">
+                    {$count['columnNum']}
+                    <span>
+                        栏目
+                    </span>
+                </div>
+                <div class="more">
+                    <a href="#">
+                        查看更多
+                        <i class="icon-arrow-right">
+                        </i>
+                    </a>
+                </div>
+            </li>
+            <li class="user">
+                <div class="visual">
+                    <i class="icon-users">
+                    </i>
+                </div>
+                <div class="number">
+                    {$count['userNum']}
+                    <span>
+                        用户
+                    </span>
+                </div>
+                <div class="more">
+                    <a href="{:U('Admin/Users/index')}">
+                        查看更多
+                        <i class="icon-arrow-right">
+                        </i>
+                    </a>
+                </div>
+            </li>
+            <li class="music">
+                <div class="visual">
+                    <i class="icon-bubble">
+                    </i>
+                </div>
+                <div class="number">
+                    {$count['messageNum']}
+                    <span>
+                        留言
+                    </span>
+                </div>
+                <div class="more">
+                    <a href="{:U('Admin/Message/index')}">
+                        查看更多
+                        <i class="icon-arrow-right">
+                        </i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="summary">
+        <div class="summary-list">
+            <div class="box">
+                <div class="title">
+                    <i class="icon-screen-desktop">
+                    </i>
+                    &nbsp;&nbsp;程序信息
+                </div>
+                <div class="list-group">
+                    <div>
+                        <a role="button" class="list-group-item" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fa fa-chevron-right icon-muted">
+                            </i>
+                            <i class="fa fa-cloud icon-muted fa-fw">
+                            </i>
+                            服务器
+                        </a>
+                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <?php echo $_SERVER['SERVER_SOFTWARE'] ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a role="button" class="list-group-item"  data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fa fa-chevron-right icon-muted">
+                            </i>
+                            <i class="fa fa-puzzle-piece icon-muted fa-fw">
+                            </i>
+                            PHP版本
+                        </a>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <?php echo PHP_VERSION ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a role="button" class="list-group-item"  data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fa fa-chevron-right icon-muted">
+                            </i>
+                            <i class="fa fa-globe icon-muted fa-fw">
+                            </i>
+                            服务器IP
+                        </a>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <?php echo $_SERVER['SERVER_ADDR'] ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a role="button" class="list-group-item"  data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fa fa-chevron-right icon-muted">
+                            </i>
+                            <i class="fa fa-hdd-o icon-muted fa-fw">
+                            </i>
+                            数据库信息
+                        </a>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <?php echo mysql_get_client_info() ?>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="javascript:;" class="list-group-item">
+                        <span class="badge bg-warning">
+                            http://www.companion.com
+                        </span>
+                        <i class="fa fa-bookmark icon-muted fa-fw">
+                        </i>
+                        程序官网
+                    </a>
+                    <a href="javascript:;" class="list-group-item">
+                        <span class="badge bg-info">
+                            companion
+                        </span>
+                        <i class="icon-user icon-muted fa-fw">
+                        </i>
+                        &nbsp;作者
+                    </a>
+                </div>
+            </div>
+            <div class="box" style="margin-left:10px">
+                <div class="title">
+                    <i class="icon-fire">
+                    </i>
+                    &nbsp;&nbsp;最近发布
+                </div>
+                <div class="list-group">
+                    <volist name="posts" id="vo">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <a class="accordion-toggle" href="javascript:;">
+                                    {$vo.title}
+                                </a>
+                            </div>
+                            <div class="panel-collapse in">
+                                <div class="panel-body text-sm">
+                                    {$vo.summary}
+                                </div>
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

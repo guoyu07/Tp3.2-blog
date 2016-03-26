@@ -1,0 +1,49 @@
+<section class="panel panel-default">
+    <header class="panel-heading">
+        留言回复
+    </header>
+    <section class="chat-list panel-body">
+        <article id="chat-id-1" class="chat-item left">
+            <a href="#" class="pull-left thumb-sm avatar">
+                <img src="__PUBLIC__/images/head.jpg"/>
+            </a>
+            <section class="chat-body">
+                <div class="panel b-light text-sm m-b-none">
+                    <div class="panel-body">
+                        <span class="arrow left">
+                        </span>
+                        <p class="m-b-none">
+                            {$message.message}
+                        </p>
+                    </div>
+                </div>
+                <small class="text-muted">
+                    <i class="fa fa-clock-o">
+                    </i>
+                    {$message.mtime}
+                </small>
+            </section>
+        </article>
+    </section>
+    <footer class="panel-footer">
+        <!-- chat form -->
+        <article class="chat-item" id="chat-form">
+            <a class="pull-left thumb-sm avatar">
+                <img src="__PUBLIC__/images/head.jpg" class="img-circle"/>
+            </a>
+            <section class="chat-body">
+                <form action="{:U('message/doReply')}" class="m-b-none" method="post">
+                    <div class="input-group">
+                        <input type="text" name="reply" class="form-control" placeholder="Say something"/>
+                        <input type="hidden" value="{$message.mid}" name="mid"></input>
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">
+                                回复
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </section>
+        </article>
+    </footer>
+</section>

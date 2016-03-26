@@ -1,0 +1,135 @@
+<script type="text/javascript" src="__PUBLIC__/_static/app.js">
+</script>
+<script type="text/javascript" src="__PUBLIC__/_static/post.js">
+</script>
+<section id="content" ng-app="blogApp" ng-controller="postCrtl">
+    <section class="vbox">
+        <section class="scrollable padder">
+            <section class="panel panel-default">
+                <div class="row wrapper">
+                    <div class="col-sm-5 m-b-xs">
+                        <a href="{:U('admin/post/create')}">
+                            <button class="btn btn-sm btn-success">
+                                新建+
+                            </button>
+                        </a>
+                        <select class="input-sm form-control input-s-sm inline v-middle">
+                            <option value="0">
+                                删除
+                            </option>
+                        </select>
+                        <button class="btn btn-sm btn-primary">
+                            操作
+                        </button>
+                    </div>
+                    <div class="col-sm-4 m-b-xs">
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input type="text" ng-model="search" ng-change="filter()" class="input-sm form-control" placeholder="Search"/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-sm btn-default" type="button">
+                                    搜索
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped b-t b-light">
+                        <thead>
+                            <tr>
+                                <th class="th-sortable" data-toggle="class">
+                                    <label class="checkbox m-n i-checks">
+                                        <input type="checkbox"/>
+                                        <i>
+                                        </i>
+                                    </label>
+                                </th>
+                                <th>
+                                    标题
+                                </th>
+                                <th>
+                                    分类
+                                </th>
+                                <th>
+                                    时间
+                                </th>
+                                <th>
+                                    操作
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody ng-show="filteredItems >0">
+                            <tr ng-repeat="post in filtered = (posts | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                                <td>
+                                    <label class="checkbox m-n i-checks">
+                                        <input type="checkbox" name="post[]"/>
+                                        <i>
+                                        </i>
+                                    </label>
+                                </td>
+                                <td>
+                                    {{post.title}}
+                                </td>
+                                <td>
+                                    {{post.columname.columname}}
+                                </td>
+                                <td>
+                                    {{post.ctime}}
+                                </td>
+                                <td>
+                                    <div class="doc-buttons">
+                                        <!-- <a href="edit/aid/{{post.aid}}" class="btn btn-sm btn-success">
+                                            编辑
+                                        </a> -->
+                                        <a ng-click="delete(post)" class="btn btn-sm btn-danger">
+                                            删除
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row wrapper" ng-show="filteredItems == 0">
+                    <div class="col-sm-12 m-b-xs" style="text-align: center;">
+                        <p>
+                            <i class="icon-bubbles icon">
+                            </i>
+                            &nbsp;暂无留言
+                        </p>
+                    </div>
+                </div>
+                <footer class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-4 hidden-xs">
+                            <select class="input-sm form-control input-s-sm inline v-middle">
+                                <option value="0">
+                                    5
+                                </option>
+                                <option value="1">
+                                    10
+                                </option>
+                                <option value="2">
+                                    50
+                                </option>
+                                <option value="3">
+                                    100
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                        </div>
+                        <div class="col-sm-4 text-right text-center-xs">
+                            <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;">
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+        </section>
+    </section>
+    <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+    </a>
+</section>

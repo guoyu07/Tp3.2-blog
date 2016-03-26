@@ -1,0 +1,190 @@
+<section id="content"ng-app="blogApp" ng-controller="detailCrtl">
+    <section class="vbox">
+        <section class="scrollable wrapper-lg">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- .breadcrumb -->
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="{:U('/index')}">
+                                <i class="fa fa-home">
+                                </i>
+                                首页
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:U('/index')}">
+                                <i class="fa fa-list-ul">
+                                </i>
+                                所有文章
+                            </a>
+                        </li>
+                        <li class="active">
+                                {$post.title}
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- / .breadcrumb -->
+                </div>
+                <div class="col-sm-9">
+                    <div class="blog-post">
+                        <div class="post-item">
+                            <div class="caption wrapper-lg">
+                                <h2 class="post-title">
+                                    <a href="javascript:;">
+                                        {$post.title}
+                                    </a>
+                                </h2>
+                                <div class="post-sum">
+                                        {$post.content|htmlspecialchars_decode|stripslashes}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search" style="margin: 0;padding: 0;width: 100%;margin-bottom: 10px;">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-sm bg-white btn-icon rounded">
+                                    <i class="fa fa-search">
+                                    </i>
+                                </button>
+                            </span>
+                            <input type="text" ng-model="search" ng-change="filter()" class="form-control input-sm no-border rounded" placeholder="搜索..."/>
+                        </div>
+                    </div>
+                    <section class="panel panel-default" style="margin-top: 40px">
+                        <div class="panel-body">
+                            <div class="clearfix text-center m-t">
+                                <div class="inline">
+                                    <div class="easypiechart" data-percent="75" data-line-width="5" data-bar-color="#4cc0c1" data-track-Color="#f5f5f5" data-scale-Color="false" data-size="134" data-line-cap='butt' data-animate="1000">
+                                        <div class="thumb-lg">
+                                            <img src="__PUBLIC__/images/head.jpg" class="img-circle" alt="..."/>
+                                        </div>
+                                    </div>
+                                    <div class="h4 m-t m-b-xs">
+                                        Virtual
+                                    </div>
+                                    <small class="text-muted m-b">
+                                        Acmen
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="panel-footer bg-info text-center">
+                            <div class="row pull-out">
+                                <div class="col-xs-4">
+                                    <div class="padder-v">
+                                        <span class="m-b-xs h3 block text-white">
+                                            <a href="https://github.com/chunlintang/" target="_blank" class="btn btn-icon btn-info" style="font-size: 25px"><i class="fa fa-github"></i></a>
+                                        </span>
+                                        <small class="text-muted">
+                                            Github
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="padder-v">
+                                        <span class="m-b-xs h3 block text-white">
+                                            <a href="http://weibo.com/tangchunlinwb?is_all=1" target="_blank" class="btn btn-sm btn-icon btn-info" style="font-size: 25px"><i class="fa fa-weibo"></i></a>
+                                        </span>
+                                        <small class="text-muted">
+                                            Weibo
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="padder-v">
+                                        <span class="m-b-xs h3 block text-white">
+                                            <a href="http://www.linkedin.com/in/chunlintang/" target="_blank" class="btn btn-sm btn-icon btn-info" style="font-size: 25px"><i class="fa fa-linkedin"></i></a>
+                                        </span>
+                                        <small class="text-muted">
+                                            Linkedin
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
+                    <section class="panel panel-default">
+                        <div class="wrapper bg-light lt" style="padding: 10px">
+                            热门文章
+                        </div>
+                        <ul class="list-group no-radius">
+                            <volist name="hot" id="vo">
+                                <li class="list-group-item hotpost">
+                                    <span class="pull-right">
+                                        {$vo.rnum}
+                                    </span>
+                                    <a href="index/detail/aid/{$vo.aid}">
+                                        <span class="label <?php if($i == 1){echo 'bg-primary';}elseif($i == 2){echo 'bg-info';}elseif($i == 3){echo 'bg-success';}else{echo 'bg-light';}?>">
+                                            <?php echo $i;?>
+                                        </span>
+                                        &nbsp;{$vo.title}
+                                    </a>
+                                </li>
+                                <!--
+                                    <li class="list-group-item">
+                                        <span class="pull-right">
+                                            23,200
+                                        </span>
+                                        <span class="label bg-info">
+                                            2
+                                        </span>
+                                        Gamecorp
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="pull-right">
+                                            21,000
+                                        </span>
+                                        <span class="label bg-success">
+                                            3
+                                        </span>
+                                        Starup
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="pull-right">
+                                            15,000
+                                        </span>
+                                        <span class="label bg-light">
+                                            4
+                                        </span>
+                                        Neosoft company
+                                    </li>
+                                -->
+                            </volist>
+                        </ul>
+                    </section>
+                    <section class="panel panel-info portlet-item">
+                        <header class="panel-heading">
+                            快速链接
+                        </header>
+                        <div class="list-group bg-white">
+                            <a href="http://www.thinkphp.cn/" target="_blank" class="list-group-item">
+                                ThinkPHP中文开发框架
+                            </a>
+                            <a href="http://www.apjs.net/" target="_blank" class="list-group-item">
+                                AngularJS中文网
+                            </a>
+                            <a href="http://www.weiphp.cn/" class="list-group-item">
+                                WeiPHP微信公众平台开发框架
+                            </a>
+                        </div>
+                    </section>
+                    <section class="panel panel-info-2 portlet-item">
+                        <header class="panel-heading-2">
+                            友情链接
+                        </header>
+                        <div class="list-group bg-white">
+                            <a href="http://www.ddhigh.com/" target="_blank" class="btn btn-rounded btn-sm list-group-item">每天进步一点点</a>
+                            <a href="http://www.itipai.com/" target="_blank" class="btn btn-rounded btn-sm list-group-item">it派</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+    <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+    </a>
+</section>

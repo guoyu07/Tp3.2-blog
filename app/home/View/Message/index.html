@@ -1,0 +1,145 @@
+<section id="content"ng-app="blogApp" ng-controller="messageCrtl">
+    <section class="vbox">
+        <section class="scrollable wrapper-lg">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- .breadcrumb -->
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="{:U('/index')}">
+                                <i class="fa fa-home">
+                                </i>
+                                首页
+                            </a>
+                        </li>
+                        <li class="active">
+                            留言板
+                        </li>
+                    </ul>
+                    <!-- / .breadcrumb -->
+                </div>
+                <div class="col-sm-9">
+                    <section class="comment-list block">
+                        <div ng-repeat="message in messages">
+                            <article id="comment-id-4" class="comment-item">
+                                <a class="pull-left thumb-sm avatar">
+                                    <img src="__PUBLIC__/images/head.jpg" alt="..."/>
+                                </a>
+                                <span class="arrow left">
+                                </span>
+                                <section class="comment-body panel panel-default">
+                                    <header class="panel-heading">
+                                        <a href="javascript:;">
+                                            {{message.nickname}}
+                                        </a>
+                                        <span class="text-muted m-l-sm pull-right">
+                                            <i class="fa fa-clock-o">
+                                            </i>
+                                            {{message.mtime}}
+                                        </span>
+                                    </header>
+                                    <div class="panel-body">
+                                        <blockquote>
+                                            <small>
+                                                {{message.message}}
+                                            </small>
+                                        </blockquote>
+                                        <div class="comment-action m-t-sm">
+                                            <a href="{:U('admin/message/reply/mid')}/{{message.mid}}" class="btn btn-default btn-xs" ng-show="message.is_reply == 0">
+                                                <i class="fa fa-mail-reply text-muted">
+                                                </i>
+                                                回复
+                                            </a>
+                                        </div>
+                                    </div>
+                                </section>
+                            </article>
+                            <!-- .comment-reply -->
+                            <article id="comment-id-2" class="comment-item comment-reply" ng-show="message.is_reply == 1">
+                                <a class="pull-left thumb-sm avatar">
+                                    <img src="__PUBLIC__/images/head.jpg" alt="..."/>
+                                </a>
+                                <span class="arrow left">
+                                </span>
+                                <section class="comment-body panel panel-default text-sm">
+                                    <div class="panel-body">
+                                        <span class="text-muted m-l-sm pull-right">
+                                            <i class="fa fa-clock-o">
+                                            </i>
+                                            {{message.rtime}}
+                                        </span>
+                                        <a href="javascript:;">
+                                            博主 :
+                                        </a>
+                                        {{message.reply}}
+                                    </div>
+                                </section>
+                            </article>
+                            <!-- / .comment-reply -->
+                        </div>
+                    </section>
+                    <div class="text-center m-t-lg m-b-lg" ng-show="filteredItems >0">
+                        <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;">
+                        </div>
+                    </div>
+                    <div class="col-lg-12" ng-show="filteredItems == 0">
+                        <p style="text-align: center;padding: 10px;font-size: 14px;color: #ccc">
+                            <i class="glyphicon glyphicon-pencil">
+                            </i>
+                            &nbsp;&nbsp;暂无留言
+                        </p>
+                    </div>
+                    <div class="col-lg-12">
+                        <h4 class="m-t-lg m-b">
+                            留言
+                        </h4>
+                        <form data-validate="parsley">
+                            <div class="form-group pull-in clearfix">
+                                <div class="col-lg-6">
+                                    <label>
+                                        昵称
+                                    </label>
+                                    <input type="text" name="nickname" ng-model="messageData.nickname" class="form-control" placeholder="Name" data-required="true"/>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label >
+                                        邮箱
+                                    </label>
+                                    <input type="email" name="email" ng-model="messageData.email" class="form-control" data-type="email" data-required="true" placeholder="Enter email"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    随便说几句...
+                                </label>
+                                <textarea class="form-control" name="message" ng-model="messageData.message" rows="5" placeholder="Type your comment" data-required="true">
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" ng-click="message(messageData)" class="btn btn-success">
+                                    么么哒
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search" style="margin: 0;padding: 0;width: 100%;margin-bottom: 10px;">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-sm bg-white btn-icon rounded">
+                                    <i class="fa fa-search">
+                                    </i>
+                                </button>
+                            </span>
+                            <input type="text" ng-model="search" ng-change="filter()" class="form-control input-sm no-border rounded" placeholder="搜索..."/>
+                        </div>
+                    </div>
+                    <include file="Layout:side"/>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+        </a>
+    </section>
