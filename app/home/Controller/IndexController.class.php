@@ -1,6 +1,6 @@
 <?php
 
-namespace home\Controller;
+namespace Home\Controller;
 
 use Think\Controller;
 
@@ -14,7 +14,7 @@ class IndexController extends CommonController {
         //排序
         $order = 'ctime desc';
         $condition = array('if_deleted' => 0);
-        $ret = D('admin/Post')->getlist($condition,$fields = array(),$order);
+        $ret = D('Admin/Post')->getlist($condition,$fields = array(),$order);
         $i = 0;
         foreach ($ret['data'] as $k) {
             $k['cname'] = D('Columns','Service')->getColumnameById($k['cid']);
@@ -34,12 +34,12 @@ class IndexController extends CommonController {
         }
 
         $cond = array('aid' => $aid);
-        $res = D('admin/Post')->getone($cond);
+        $res = D('Admin/Post')->getone($cond);
         if(!$res){
             $this->error('页面错误',index,2);
         }
         //点击量＋1
-        D('admin/Post')->plusHit($cond,'rnum');
+        D('Admin/Post')->plusHit($cond,'rnum');
         $this->assign('title',$res['title']);
         $this->assign('post',$res);
         $this->display();

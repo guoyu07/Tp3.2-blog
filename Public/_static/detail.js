@@ -4,7 +4,7 @@ app.controller('detailCrtl', function ($scope, $http, $timeout, $location) {
     if (urlparams) {
         $scope.aid = urlparams.aid;    
     }
-    $http.get('home/Index/detail?aid='+$scope.aid).success(function(data){
+    $http.get('Home/Index/detail?aid='+$scope.aid).success(function(data){
         $scope.list = data.data;
         $scope.posts = $scope.list.data;
     });

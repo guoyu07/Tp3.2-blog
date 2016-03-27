@@ -1,10 +1,10 @@
 <?php
 
-namespace admin\Controller;
+namespace Admin\Controller;
 
 use Think\Controller;
 
-class MessageController extends Controller{
+class MessageController extends CommonController{
 
     public function index(){
         $this->assign('title','留言管理');

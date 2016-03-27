@@ -9,7 +9,7 @@ app.filter('startFrom', function() {
 });
 
 app.controller('messageCrtl', function ($scope, $http, $timeout, $location,$window) {
-    $http.get('home/Message/getlist').success(function(data){
+    $http.get('Home/Message/getlist').success(function(data){
         $scope.list = data.data;
         $scope.messages = $scope.list.data;
         $scope.currentPage = 1; //current page
@@ -22,7 +22,7 @@ app.controller('messageCrtl', function ($scope, $http, $timeout, $location,$wind
     };
 
     $scope.message = function(messageData){
-        $http.post('home/Message/addone',{data : messageData}).success(function(data){
+        $http.post('Home/Message/addone',{data : messageData}).success(function(data){
             if(data.code == 1){
                 iosOverlay({
                         text: data.msg,

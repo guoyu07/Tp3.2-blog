@@ -23,7 +23,7 @@
                         <div ng-repeat="message in messages">
                             <article id="comment-id-4" class="comment-item">
                                 <a class="pull-left thumb-sm avatar">
-                                    <img src="__PUBLIC__/images/head.jpg" alt="..."/>
+                                    <img src="{{message.head}}" alt="..."/>
                                 </a>
                                 <span class="arrow left">
                                 </span>
@@ -44,13 +44,6 @@
                                                 {{message.message}}
                                             </small>
                                         </blockquote>
-                                        <div class="comment-action m-t-sm">
-                                            <a href="{:U('admin/message/reply/mid')}/{{message.mid}}" class="btn btn-default btn-xs" ng-show="message.is_reply == 0">
-                                                <i class="fa fa-mail-reply text-muted">
-                                                </i>
-                                                回复
-                                            </a>
-                                        </div>
                                     </div>
                                 </section>
                             </article>
@@ -117,7 +110,7 @@
                             </div>
                             <div class="form-group">
                                 <button type="submit" ng-click="message(messageData)" class="btn btn-success">
-                                    么么哒
+                                    留言
                                 </button>
                             </div>
                         </form>

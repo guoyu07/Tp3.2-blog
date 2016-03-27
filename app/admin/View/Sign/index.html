@@ -55,15 +55,19 @@
                 <div class="initial_right_hand" id="right_hand">
                 </div>
             </div>
+            <form action="{:U('sign/loginHandel')}" method="post">
             <p style="padding: 30px 0px 10px; position: relative;">
                 <span class="u_logo">
                 </span>
-                <input class="ipt" type="text" name="username" ng-model="loginData.username" required placeholder="请输入用户名或邮箱"/>
+                <input class="ipt" type="text" name="username" required placeholder="请输入用户名或邮箱"/>
             </P>
             <p style="position: relative;">
                 <span class="p_logo">
                 </span>
-                <input class="ipt" id="password" name="password" ng-model="loginData.password" type="password" placeholder="请输入密码"/>
+                <input class="ipt" id="password" name="password" required="" type="password" placeholder="请输入密码"/>
+            </p>
+            <p style="position: relative;" class="message">
+                <span>{$unmessage}</span>
             </p>
             <!--
                 <p style="padding: 10px 0px 10px;position: relative;">
@@ -86,10 +90,11 @@
                         </a>
                     </span>
                     <span style="float: right;">
-                        <input data-ng-disabled="loginForm.$invalid" type="submit" ng-click="login(loginData)" style="background: #0bacd3; padding: 7px 10px; border-radius: 4px; border: 1px solid #0bacd3; border-image: none; color: rgb(255, 255, 255); font-weight: bold;" value="登录"/>
+                        <input type="submit" style="background: #0bacd3; padding: 7px 10px; border-radius: 4px; border: 1px solid #0bacd3; border-image: none; color: rgb(255, 255, 255); font-weight: bold;" value="登录"/>
                     </span>
                 </p>
             </div>
+            </form>
         </div>
     </body>
 </html>

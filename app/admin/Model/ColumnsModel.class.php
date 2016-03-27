@@ -1,6 +1,6 @@
 <?php
 
-namespace admin\Model;
+namespace Admin\Model;
 
 class ColumnsModel extends CommonModel{
 

@@ -1,4 +1,4 @@
-<section id="content"ng-app="blogApp" ng-controller="postCrtl">
+<section id="content"ng-app="blogApp" ng-controller="newsCrtl">
     <section class="vbox">
         <section class="scrollable wrapper-lg">
             <div class="row">
@@ -12,6 +12,16 @@
                                 首页
                             </a>
                         </li>
+                        <li>
+                            <a href="{:U('/index')}">
+                                <i class="fa fa-list-ul">
+                                </i>
+                                所有文章
+                            </a>
+                        </li>
+                        <li class="active">
+                            IT资讯
+                        </li>
                     </ul>
                     <!-- / .breadcrumb -->
                 </div>
@@ -19,11 +29,11 @@
                     <div class="blog-post">
                         <div class="post-item" ng-repeat="post in filtered = (posts | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                             <div class="caption wrapper-lg">
-                                <h5 class="post-title">
+                                <h2 class="post-title">
                                     <a href="index/detail/aid/{{post.aid}}">
                                         {{post.title}}
                                     </a>
-                                </h5>
+                                </h2>
                                 <div class="post-sum">
                                     <p>
                                         {{post.summary}}

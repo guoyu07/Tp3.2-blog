@@ -8,8 +8,8 @@ app.filter('startFrom', function() {
     }
 });
 
-app.controller('pythonCrtl', function ($scope, $http, $timeout, $location) {
-    $http.get('Home/Python/getlist').success(function(data){
+app.controller('newsCrtl', function ($scope, $http, $timeout, $location) {
+    $http.get('Home/News/getlist').success(function(data){
         $scope.list = data.data;
         $scope.posts = $scope.list.data;
         $scope.currentPage = 1; //current page

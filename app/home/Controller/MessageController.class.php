@@ -1,6 +1,6 @@
 <?php
 
-namespace home\Controller;
+namespace Home\Controller;
 
 use Think\Controller;
 
@@ -14,7 +14,7 @@ class MessageController extends CommonController{
 
     public function getlist(){
         $order = 'mtime desc';
-        $ret = D('admin/Message')->getlist($condition,$fields = array(),$order);
+        $ret = D('Admin/Message')->getlist($condition,$fields = array(),$order);
         if(!$ret){
             $this->ajaxReturn(array('code' => 0,'msg' => '获取失败'));
         }
@@ -29,8 +29,12 @@ class MessageController extends CommonController{
 
     public function addone(){
         $data = I('data');
+        if($data == "" || $data['nickname'] == "" || $data['email'] == "" || $data['message'] == ""){
+            $this->ajaxReturn(array('code' => 0,'msg' => '有未填项'));
+        }
         $data['mtime'] = date('Y-m-d H:i:s',time());
-        $ret = D('admin/Message')->addone($data);
+        $data['head'] = getRandHead();
+        $ret = D('Admin/Message')->addone($data);
         if(!$ret){
             $this->ajaxReturn(array('code' => 0,'msg' => '留言失败'));
         }

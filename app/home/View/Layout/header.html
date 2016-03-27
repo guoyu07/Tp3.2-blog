@@ -8,6 +8,7 @@
             {$title}
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="shortcut icon" href="__PUBLIC__/images/favicon.ico">
         <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.css" type="text/css" />
         <link rel="stylesheet" href="__PUBLIC__/css/animate.css" type="text/css" />
         <link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css" type="text/css" />
@@ -45,6 +46,8 @@
         </script>
         <script type="text/javascript" src="__PUBLIC__/_static/message.js">
         </script>
+        <script type="text/javascript" src="__PUBLIC__/_static/news.js">
+        </script>
         <script type="text/javascript" src="__PUBLIC__/_static/detail.js">
         </script>
         <!--[if lt IE 9]>
@@ -56,7 +59,7 @@
             </script>
         <![endif]-->
     </head>
-    <body>
+    <body id="body">
         <section class="vbox">
             <header class="bg-white-only header header-md navbar navbar-fixed-top-xs" style="background-color: #232c32">
                 <div class="navbar-header">
@@ -102,6 +105,11 @@
                         <li>
                             <a href="{:U('/frontend')}">
                                 前端
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:U('/news')}">
+                                IT资讯
                             </a>
                         </li>
                         <li>

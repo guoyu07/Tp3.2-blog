@@ -5,8 +5,8 @@ return array(
 
     'URL_MODEL' => 2,
 
-    'TMPL_ACTION_SUCCESS'=>'Layout:dispatch_jump',
-    'TMPL_ACTION_ERROR'=>'Layout:dispatch_jump',
+    //'TMPL_ACTION_SUCCESS'=>'Layout:dispatch_jump',
+    //'TMPL_ACTION_ERROR'=>'Layout:dispatch_jump',
 
     //路由规则
     'URL_ROUTE_RULES' => array(

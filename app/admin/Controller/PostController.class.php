@@ -1,6 +1,6 @@
 <?php
 
-namespace admin\Controller;
+namespace Admin\Controller;
 
 use Think\Controller;
 
@@ -9,16 +9,13 @@ use Think\Controller;
 * date:2016-03-05
 * author:tangchunlinit@163.com
 */
-class PostController extends Controller
+class PostController extends CommonController
 {
-    public function _initialize()
-    {
-        $this->assign('title','文章管理');
-    }
     /**
      * @return array [获取文章列表]
      */
     public function index(){
+        $this->assign('title','文章管理');
         $this->display();
     }
 

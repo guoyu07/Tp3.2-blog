@@ -9,7 +9,7 @@ app.filter('startFrom', function() {
 });
 
 app.controller('postCrtl', function ($scope, $http, $timeout, $location) {
-    $http.get('home/Index/getlist').success(function(data){
+    $http.get('Home/Index/getlist').success(function(data){
         $scope.list = data.data;
         $scope.posts = $scope.list.data;
         $scope.currentPage = 1; //current page

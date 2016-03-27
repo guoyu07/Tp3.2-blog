@@ -1,5 +1,5 @@
 <?php
-
+//日期格式化输出
 function formatTime($time){
 $t=time()-strtotime($time);
     $f=array(
@@ -16,4 +16,10 @@ $t=time()-strtotime($time);
             return $c.$v.'前';
         }
     }
+}
+
+//获取随机头像
+function getRandHead(){
+    $path = HEAD_PATH.'/'.rand(1,6).'.png';
+    return $path;
 }

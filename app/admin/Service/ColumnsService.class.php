@@ -1,6 +1,6 @@
 <?php
 
-namespace admin\Service;
+namespace Admin\Service;
 
 class ColumnsService{
 

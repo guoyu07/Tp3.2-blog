@@ -1,6 +1,6 @@
 <?php
 
-namespace home\Controller;
+namespace Home\Controller;
 
 use Think\Controller;
 
@@ -10,7 +10,7 @@ class CommonController extends Controller{
         //热门文章
         $condition = array('if_deleted' => 0);
         $order = 'rnum desc';
-        $hot = D('admin/Post')->getlist($condition,$fields = array(),$order,4);
+        $hot = D('Admin/Post')->getlist($condition,$fields = array(),$order,4);
         $this->assign('hot',$hot['data']);
         $this->assign('title','爱技术，爱生活');
     }

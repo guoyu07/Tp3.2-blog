@@ -1,6 +1,6 @@
 <?php
 
-namespace home\Service;
+namespace Home\Service;
 
 class ColumnsService{
 
@@ -12,7 +12,7 @@ class ColumnsService{
      */
     public function getColumnameById($id){
         $condition = array('cid' => $id);
-        $ret = D('admin/Columns')->getone($condition);
+        $ret = D('Admin/Columns')->getone($condition);
         return $ret;
     }
 }

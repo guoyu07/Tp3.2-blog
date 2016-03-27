@@ -1,9 +1,9 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class PythonController extends CommonController {
+class NewsController extends CommonController {
     public function index(){
-        $this->assign('title','Python|爱技术，爱生活');
+        $this->assign('title','IT资讯|爱技术，爱生活');
         $this->display();
     }
 
@@ -11,7 +11,7 @@ class PythonController extends CommonController {
     {
         //排序
         $order = 'ctime desc';
-        $condition = array('if_deleted' => 0,'cid' => 4);
+        $condition = array('if_deleted' => 0,'cid' => 5);
         $ret = D('Admin/Post')->getlist($condition,$fields = array(),$order);
         $i = 0;
         foreach ($ret['data'] as $k) {

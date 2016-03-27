@@ -1,13 +1,13 @@
 <?php
-namespace admin\Controller;
+namespace Admin\Controller;
 use Think\Controller;
 
-class IndexController extends Controller {
+class IndexController extends CommonController {
 
-    public function _initialize(){
+    /*public function _initialize(){
         $this->assign('title','后台管理');
         
-    }
+    }*/
     
     public function index(){
         $p_Cond = array('if_deleted' => 0);
@@ -25,6 +25,7 @@ class IndexController extends Controller {
         $posts = D('Post')->getlist($p_Cond,$fields = array(),$order,2);
         $this->assign('count',$count);
         $this->assign('posts',$posts['data']);
+        $this->assign('title','后台管理');
         $this->display();
     }
 }
