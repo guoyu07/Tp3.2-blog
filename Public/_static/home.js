@@ -38,13 +38,3 @@ app.config(function($httpProvider) {
         return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
     }];
 });
-
-//路由规则
-/*app.config(function($routeProvider) {
-    console.log(aa);
-    $routeProvider
-    .when('/index/detail/:aid',{
-            templateUrl : 'detail.html',
-            controller : 'detailCrtl'
-        })
-});*/

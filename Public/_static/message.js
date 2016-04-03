@@ -9,11 +9,13 @@ app.filter('startFrom', function() {
 });
 
 app.controller('messageCrtl', function ($scope, $http, $timeout, $location,$window) {
+    $scope.loading = true;
     $http.get('Home/Message/getlist').success(function(data){
         $scope.list = data.data;
         $scope.messages = $scope.list.data;
         $scope.currentPage = 1; //current page
         $scope.entryLimit = 5;
+        $scope.loading = false;
         $scope.filteredItems = $scope.list.count;
         $scope.totalItems = $scope.list.count;
     });

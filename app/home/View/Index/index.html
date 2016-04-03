@@ -1,4 +1,4 @@
-<section id="content"ng-app="blogApp" ng-controller="postCrtl">
+<section id="content"ng-app="blogApp" ng-controller="postCrtl" ng-cloak>
     <section class="vbox">
         <section class="scrollable wrapper-lg">
             <div class="row">
@@ -15,7 +15,21 @@
                     </ul>
                     <!-- / .breadcrumb -->
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-9" style="text-align: center" ng-show="loading">
+                    <div class="loader">
+                        <div class="loader-inner ball-spin-fade-loader">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9" ng-hide="loading">
                     <div class="blog-post">
                         <div class="post-item" ng-repeat="post in filtered = (posts | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                             <div class="caption wrapper-lg">
@@ -83,3 +97,8 @@
     <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
     </a>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('main').className += 'loaded';
+    });
+  </script>

@@ -1,13 +1,13 @@
 <?php
-define('HEAD_PATH', 'Public/images/head/');
 
+define(Head_Path, 'Public/images/head/');
 return array(
 	//数据库配置
     'DB_TYPE' => 'mysql',
-    'DB_HOST' => '61.188.39.33',
-    'DB_NAME' => 'tangchunlin',
-    'DB_USER' => 'tangchunlin',
-    'DB_PWD' => 'tcllct19680910',
+    'DB_HOST' => '127.0.0.1',
+    'DB_NAME' => 'mantisme_blog',
+    'DB_USER' => 'mantisme_virtual',
+    'DB_PWD' => 'TNiDvM9cZ9^Z',
     'DB_PORT' => 3306,
     'DB_PREFIX' => 'web_',
     'DB_CHARSET' => 'utf8',
@@ -25,5 +25,8 @@ return array(
     //忽略大小写
     'URL_CASE_INSENSITIVE' => true,
     //去除url中index.php
-    'URL_MODEL'=>'2'
+    'URL_MODEL'=>'2',
+
+    //定义错误页面
+    'ERROR_PAGE' => 'Home/Empty/404.html'
 );

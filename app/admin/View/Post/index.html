@@ -60,7 +60,23 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody ng-show="filteredItems >0">
+                        <tbody>
+                            <tr>
+                                <div class="loader" ng-show="loading">
+                                    <div class="loader-inner ball-spin-fade-loader">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </tr>
+                        </tbody>
+                        <tbody ng-show="filteredItems >0" ng-hide="loading">
                             <tr ng-repeat="post in filtered = (posts | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                                 <td>
                                     <label class="checkbox m-n i-checks">
@@ -80,9 +96,6 @@
                                 </td>
                                 <td>
                                     <div class="doc-buttons">
-                                        <!-- <a href="edit/aid/{{post.aid}}" class="btn btn-sm btn-success">
-                                            编辑
-                                        </a> -->
                                         <a ng-click="delete(post)" class="btn btn-sm btn-danger">
                                             删除
                                         </a>

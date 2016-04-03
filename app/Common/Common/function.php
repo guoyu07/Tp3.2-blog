@@ -20,6 +20,6 @@ $t=time()-strtotime($time);
 
 //获取随机头像
 function getRandHead(){
-    $path = HEAD_PATH.'/'.rand(1,6).'.png';
+    $path = Head_Path.rand(1,6).'.png';
     return $path;
 }

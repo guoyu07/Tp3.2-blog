@@ -18,7 +18,21 @@
                     </ul>
                     <!-- / .breadcrumb -->
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-9" style="text-align: center" ng-show="loading">
+                    <div class="loader">
+                        <div class="loader-inner ball-spin-fade-loader">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9" ng-hide="loading">
                     <section class="comment-list block">
                         <div ng-repeat="message in messages">
                             <article id="comment-id-4" class="comment-item">
@@ -50,7 +64,7 @@
                             <!-- .comment-reply -->
                             <article id="comment-id-2" class="comment-item comment-reply" ng-show="message.is_reply == 1">
                                 <a class="pull-left thumb-sm avatar">
-                                    <img src="__PUBLIC__/images/head.jpg" alt="..."/>
+                                    <img src="__PUBLIC__/images/head.png" alt="..."/>
                                 </a>
                                 <span class="arrow left">
                                 </span>

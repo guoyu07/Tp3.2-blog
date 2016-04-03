@@ -9,11 +9,13 @@ app.filter('startFrom', function() {
 });
 
 app.controller('frontendCrtl', function ($scope, $http, $timeout, $location) {
+    $scope.loading = true;
     $http.get('Home/Frontend/getlist').success(function(data){
         $scope.list = data.data;
         $scope.posts = $scope.list.data;
         $scope.currentPage = 1; //current page
         $scope.entryLimit = 5;
+        $scope.loading = false;
         $scope.filteredItems = $scope.list.count;
         $scope.totalItems = $scope.list.count;
     });

@@ -36,7 +36,7 @@ class IndexController extends CommonController {
         $cond = array('aid' => $aid);
         $res = D('Admin/Post')->getone($cond);
         if(!$res){
-            $this->error('页面错误',index,2);
+            $this->display('Empty:404');
         }
         //点击量＋1
         D('Admin/Post')->plusHit($cond,'rnum');

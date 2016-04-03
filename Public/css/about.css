@@ -1,18 +1,1 @@
-body{
-    background: #000 url('../images/bg.jpg') no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    -webkit-backface-visibility: hidden;
-}
-
-.en-about{
-    margin-left: 10px;
-    font-family: cursive;
-}
-
-.info-true{
-    font-family: cursive;
-    margin-left: 10px;
-}
+body{background:#000 url('http://7xrqw1.com1.z0.glb.clouddn.com/bg.png') no-repeat center center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;-webkit-backface-visibility:hidden}.en-about{margin-left:10px;font-family:cursive}.info-true{font-family:cursive;margin-left:10px}

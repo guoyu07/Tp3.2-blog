@@ -25,7 +25,21 @@
                     </ul>
                     <!-- / .breadcrumb -->
                 </div>
-                <div class="col-sm-9">
+                <div class="col-sm-9" style="text-align: center" ng-show="loading">
+                    <div class="loader">
+                        <div class="loader-inner ball-spin-fade-loader">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9" ng-hide="loading">
                     <div class="blog-post">
                         <div class="post-item" ng-repeat="post in filtered = (posts | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
                             <div class="caption wrapper-lg">
